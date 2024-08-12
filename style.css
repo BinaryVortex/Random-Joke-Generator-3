@@ -1,0 +1,195 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Body Styling with Background and Overlay */
+body {
+    height: 100vh;
+    background: url('joke.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    z-index: -1;
+    transition: background 0.5s ease;
+}
+
+/* Optional: Change overlay on hover or any interaction */
+body:hover::before {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Frame Styling */
+.frame {
+    width: 90%;
+    max-width: 700px;
+    background: #ffffff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+}
+
+/* Gradient Effect */
+.frame::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+    border-radius: 20px;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.frame:hover::before {
+    opacity: 1;
+}
+
+.frame:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    background-color: #f2f2f2;
+}
+
+/* Title Styling */
+.frame .title {
+    width: 100%;
+    font-size: 44px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.frame .title img {
+    margin-left: 20px;
+    vertical-align: middle;
+}
+
+/* Joke Styling */
+.frame .joke {
+    width: 100%;
+    font-size: 26px;
+    color: #555;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+.frame .joke .que {
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #222;
+}
+
+.frame .joke .ans {
+    font-style: italic;
+    color: #666;
+}
+
+/* Button Styling */
+.frame .gen {
+    padding: 15px 30px;
+    font-size: 22px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button Hover Effects */
+.frame .gen::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+    transform: translate(-50%, -50%);
+    transition: transform 0.5s ease;
+    opacity: 0;
+    z-index: 0;
+}
+
+.frame .gen:hover::after {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 1;
+}
+
+.frame .gen:hover {
+    background: linear-gradient(135deg, #e68900, #e64a19);
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.frame .gen:active {
+    background: linear-gradient(135deg, #d84315, #e64a19);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Focus Styling */
+.frame .gen:focus {
+    outline: 2px solid #ff5722;
+    outline-offset: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .frame {
+        padding: 20px;
+    }
+
+    .frame .title {
+        font-size: 36px;
+    }
+
+    .frame .joke {
+        font-size: 20px;
+    }
+
+    .frame .gen {
+        font-size: 18px;
+        padding: 12px 24px;
+    }
+}
