@@ -49,6 +49,7 @@ body:hover::before {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     position: relative;
+    overflow: hidden;
 }
 
 /* Gradient Effect */
@@ -175,6 +176,25 @@ body:hover::before {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .frame {
+        padding: 30px;
+    }
+
+    .frame .title {
+        font-size: 40px;
+    }
+
+    .frame .joke {
+        font-size: 22px;
+    }
+
+    .frame .gen {
+        font-size: 20px;
+        padding: 14px 28px;
+    }
+}
+
 @media (max-width: 768px) {
     .frame {
         padding: 20px;
@@ -191,5 +211,25 @@ body:hover::before {
     .frame .gen {
         font-size: 18px;
         padding: 12px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .frame {
+        padding: 15px;
+        width: 95%;
+    }
+
+    .frame .title {
+        font-size: 32px;
+    }
+
+    .frame .joke {
+        font-size: 18px;
+    }
+
+    .frame .gen {
+        font-size: 16px;
+        padding: 10px 20px;
     }
 }
